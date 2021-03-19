@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+   
+}
+.form{
+    border: 1px solid black;
+ background-color: violet; 
+ border-radius: 100px;
+ height: 500px;
+
+}
+.form-control , .btn-primary{
+    border-radius: 20px;
+    height: 50px;
+}
+
+.col{
+    text-align: center;
+}
