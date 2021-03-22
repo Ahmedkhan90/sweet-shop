@@ -42,11 +42,11 @@ admin.initializeApp({
 });
 const bucket = admin.storage().bucket("gs://auth-production-9273f.appspot.com/");
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: ['http://localhost:3000',"https://login-system-jahan.herokuapp.com/"],
+    origin: ['http://localhost:3000',],
     credentials: true
 }));
 app.use(morgan('dev'));
@@ -125,6 +125,7 @@ app.post("/addProduct", upload.any(), (req, res, next) => {
                         foodUserModel.findById(req.headers.jToken.id, 'email role', (err, user) => {
                             console.log("user =======>", user.email)
                             if (!err) {
+                                console.log("ahmed", req.body)
                                 foodProductModel.create({
                                     "name": req.body.productName,
                                     "price": req.body.price,
@@ -132,14 +133,14 @@ app.post("/addProduct", upload.any(), (req, res, next) => {
                                     "image": urlData[0],
                                     "description": req.body.description
                                 }).then((data) => {
-                                    console.log(data)
+                                    console.log("data: ",data)
                                     res.send({
                                         status: 200,
                                         message: "Product add successfully",
                                         data: data
                                     })
-                                }).catch(() => {
-                                    console.log(err);
+                                }).catch((err) => {
+                                    console.log("error :" ,err);
                                     res.status(500).send({
                                         message: "user create error, " + err
                                     })

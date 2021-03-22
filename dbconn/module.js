@@ -57,7 +57,7 @@ var foodOrderModel = mongoose.model("orders", foodOrderSchema);
 var foodProductSchema = new mongoose.Schema({
     "name": String,
     "image": String,
-    "stock": Number,
+    "stock": String,
     "price": Number,
     "description": String,
     "isAvailable": String,

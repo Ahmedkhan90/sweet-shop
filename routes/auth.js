@@ -5,8 +5,8 @@ var { foodUserModel, foodOtpModel, } = require('../dbconn/module')
 var router = express.Router();
 var SERVER_SECRET = process.env.SECRET || "1234";
 var postmark = require("postmark");
-var emailApi = process.env.EMAIL_API || "c1085f89-3538-4e2d-8751-faf7125765e6"; 
-var client = new postmark.ServerClient(emailApi);
+var emailApi = process.env.EMAIL_API || "8f8baeb3-aae6-4784-afe1-5b2885d81808"; 
+var client = new postmark.ServerClient("8f8baeb3-aae6-4784-afe1-5b2885d81808");
 
 router.post("/signup", (req, res, next) => {
     console.log(req.body)
@@ -19,10 +19,10 @@ router.post("/signup", (req, res, next) => {
             please send name, email, passwod, phone and gender in json body.
             e.g:
             {
-                "name": "jahanzaib",
-                "email": "jahanzaib@gmail.com",
+                "name": "Mohammad Ahmed Khan",
+                "email": "dx.ahmedkhan@gmail.com",
                 "password": "123",
-                "phone": "034320492",
+                "phone": "03112030422",
                 "gender": "Male"
             }`)
         return;
@@ -75,7 +75,7 @@ router.post("/login", (req, res, next) => {
             please send email and passwod in json body.
             e.g:
             {
-                "email": "jahanzaib@gmail.com",
+                "email": "dx.hmedkhan@gmail.com",
                 "password": "123",
             }`)
         return;
@@ -162,7 +162,7 @@ router.post('/forget-password', (req, res, next) => {
                 otp: otp
             }).then((data) => {
                 client.sendEmail({
-                    "From": "jahanzaib_student@sysborg.com",
+                    "From": "Ahmed_student@sysborg.com",
                     "To": req.body.email,
                     "Subject": "Reset Your Password",
                     "Textbody": `Here is your Reset password code : ${otp}`
