@@ -31,7 +31,7 @@ function AdminDashboard() {
         })
     }
     return (
-        <div>
+        <div style={{color:"white",}}>
             <div className="container">
                 <h1 className='text-center mt-3 mb-3'>Customers Orders</h1>
                 <div className='row justify-content-center'>
@@ -72,7 +72,7 @@ function AdminDashboard() {
                                         <span className='float-right mt-2'>
                                             <button onClick={() => {
                                                 updateStatus(v._id)
-                                            }} >Confirm Order</button>
+                                            }} style={{backgroundColor:"black", color:"white",}} >Confirm Order</button>
                                         </span>
                                     </div>
                                 </div>
